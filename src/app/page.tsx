@@ -6,7 +6,7 @@ import IncreasedProducts from "@/components/IncreasedProducts";
 
 const page = () => {
   return (
-    <div className="bg-[#f6fcf6]">
+    <div className="bg-[#f6fcf6] pb-10">
       <Banner />
       <div className="container mx-auto mt-10">
             <h1 className="text-xl font-bold">

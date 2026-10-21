@@ -18,13 +18,15 @@ const IncreasedProducts = async () => {
     const products = await fetchProducts();
 
    return (
-  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 mt-3">
-    {products
-      .filter((product: ProductType) => product.change.dir === "up")
-      .map((product: ProductType) => (
-        <div key={product.id} className="flex items-center gap-2">
-          <ProductCard product={product} />
-        </div>
+ <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+  {products
+    .filter((product: ProductType) => product.change.dir === "up")
+    .sort((a, b) => b.change.pct - a.change.pct)
+    .slice(0, 6)
+    .map((product: ProductType) => (
+      <div key={product.id} className="flex items-center gap-2">
+        <ProductCard product={product} />
+      </div>
       ))}
   </div>
 );

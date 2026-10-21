@@ -47,7 +47,7 @@ export default function ProductCard({ product }: Props) {
             ? "▲"
             : product.change.dir === "down"
               ? "▼"
-              : ""}
+              : "-"}
           {Math.abs(product.change.pct)}%
         </span>
       </div>
