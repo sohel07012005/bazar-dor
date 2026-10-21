@@ -16,8 +16,8 @@ const Categories = async () => {
     const data = await fethCategories();
     return (
         <div className="flex flex-row gap-10 justify-start items-center py-2">
-            {data.map((category: { id: string; nameBn: string; name: string; icon: string }) => (
-                <Link key={category.id} href="" className="flex items-center gap-2 hover:text-green-600 ">
+            {data.map((category: { id: string; slug: string; nameBn: string; icon: string }) => (
+                <Link key={category.id} href={`/category/${category.slug}`} className="flex items-center gap-2 hover:text-green-600 ">
                     <span>{category.icon}</span>
                     <h2>{category.nameBn}</h2>
                 </Link>
