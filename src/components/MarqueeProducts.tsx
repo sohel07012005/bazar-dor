@@ -12,7 +12,7 @@ type Product = {
 
 const fetchProducts = async (): Promise<Product[]> => {
   const res = await fetch(
-    "https://openapi.programming-hero.com/api/bazardor/products",
+    "https://openapi.programming-hero.com/api/bazardor/products"
   );
 
   if (!res.ok) {
