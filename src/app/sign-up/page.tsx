@@ -1,17 +1,30 @@
 "use client";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import { type FormEvent } from "react";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
+import toast from "react-hot-toast";
+import { redirect } from "next/navigation";
 
 export default function SignUpForm() {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-
-    // Connect Better Auth / backend here later.
-   
+    const user = Object.fromEntries(formData.entries());
+     
+    const { data, error } = await authClient.signUp.email({
+       name: user.name as string,
+      email: user.email as string,
+      password: user.password as string,
+    });
+   if(data){
+    toast.success("Sign up successful");
+    redirect("/");
+   }
+   if(error){
+    toast.error("Error: " + error.message);
+   }
   };
 
   return (
@@ -74,9 +87,9 @@ export default function SignUpForm() {
               id="password"
               name="password"
               type="password"
-              placeholder="কমপক্ষে ৬ অক্ষরের"
+              placeholder="কমপক্ষে ৮ অক্ষরের"
               autoComplete="new-password"
-              minLength={6}
+              minLength={8}
               required
               className="h-10 w-full rounded-md border border-[#e2ebe2] bg-transparent px-3 text-sm outline-none focus:border-green-600 focus:ring-1 focus:ring-green-100"
             />
@@ -95,7 +108,7 @@ export default function SignUpForm() {
               type="password"
               placeholder="আবার লিখুন"
               autoComplete="new-password"
-              minLength={6}
+              minLength={8}
               required
               className="h-10 w-full rounded-md border border-[#e2ebe2] bg-transparent px-3 text-sm outline-none focus:border-green-600 focus:ring-1 focus:ring-green-100"
             />

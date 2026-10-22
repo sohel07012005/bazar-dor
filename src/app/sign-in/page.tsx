@@ -2,15 +2,31 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import type { FormEvent } from "react";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "react-hot-toast";
+
 
 export default function SignInForm() {
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
+    const user = Object.fromEntries(formData.entries());
 
-    // Connect Better Auth / backend here later.
+    const { data, error } = await authClient.signIn.email({
+    email: user.email as string,
+    password: user.password as string,
+    rememberMe: true,
+    callbackURL: "/",
+});
+  
+ if(data){
+    toast.success("Sign in successful");
+   }
+   if(error){
+    toast.error("Sign in failed : " + error.message);
+   }
+    
    
   };
 
@@ -55,9 +71,9 @@ export default function SignInForm() {
               id="password"
               name="password"
               type="password"
-              placeholder="কমপক্ষে ৬ অক্ষরের"
+              placeholder="কমপক্ষে ৮ অক্ষরের"
               autoComplete="new-password"
-              minLength={6}
+              minLength={8}
               required
               className="h-10 w-full rounded-md border border-[#e2ebe2] bg-transparent px-3 text-sm outline-none focus:border-green-600 focus:ring-1 focus:ring-green-100"
             />

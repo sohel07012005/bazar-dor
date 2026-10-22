@@ -6,9 +6,12 @@ import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
 import MarqueeProducts from "./MarqueeProducts";
 import CurrentDate from "./CurrentDate";
+import UserInfo from "./UserInfo";
 
 
-const Navbar = () => {
+
+const Navbar = async () => {
+ 
   return (
     <nav className="w-full bg-base-100">
       <div className="container mx-auto flex h-14 items-center justify-between pt-4">
@@ -33,22 +36,7 @@ const Navbar = () => {
             </Suspense>
           </div>
         </Link>
-
-        <div className="flex items-center gap-3 sm:gap-5">
-          <Link
-            href="/sign-in"
-            className="text-[15px] font-medium text-base-content transition-colors hover:text-green-700"
-          >
-            সাইন ইন
-          </Link>
-
-          <Link
-            href="/sign-up"
-            className="btn btn-sm px-4 py-2 rounded-lg border-none bg-green-700 text-[15px] font-semibold text-white shadow-sm hover:bg-green-800"
-          >
-            সাইন আপ
-          </Link>
-        </div>
+        <UserInfo></UserInfo>
       </div>
 
       <div className="container mx-auto px-3 border-t mt-4 border-gray-200">
