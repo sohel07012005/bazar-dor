@@ -39,11 +39,13 @@ const Navbar = async () => {
         <UserInfo></UserInfo>
       </div>
 
-      <div className="container mx-auto px-3 border-t mt-4 border-gray-200">
+     <div className="border-t  border-gray-200 mt-4">
+       <div className="container mx-auto px-3 ">
         <Suspense fallback={<div>ক্যাটাগরি লোড হচ্ছে...</div>}>
           <Categories />
         </Suspense>
       </div>
+     </div>
       <div className="py-3 border-y border-gray-200">
         <MarqueeText direction="right" duration={10}>
          <Suspense fallback={<div>লোড হচ্ছে...</div>}>
