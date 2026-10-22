@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { FaCircleUser } from "react-icons/fa6";
 
 
@@ -8,7 +9,7 @@ const UserInfo = () => {
   const { data: session} = authClient.useSession();
 
   const handleSignOut = async () => { await authClient.signOut();
-    }
+    redirect("/")}
 
   return (
     <div>

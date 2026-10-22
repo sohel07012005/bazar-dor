@@ -27,6 +27,19 @@ export default function SignUpForm() {
    }
   };
 
+    const handleGooglesignIn = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+};
+
+const handleGithubsignIn = async () => {
+    const data = await authClient.signIn.social({
+        provider: "github"
+    })
+}
+
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-[#f0f5f0] px-4 py-8 sm:py-10">
       <div className="mb-5 text-center">
@@ -130,6 +143,7 @@ export default function SignUpForm() {
 
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           <button
+            onClick={handleGooglesignIn}
             type="button"
             className="flex items-center justify-center gap-2 rounded-md border border-[#e2ebe2] px-2 py-2 text-xs font-medium text-gray-700 transition hover:bg-green-50"
           >
@@ -140,6 +154,7 @@ export default function SignUpForm() {
           </button>
 
           <button
+            onClick={handleGithubsignIn}
             type="button"
             className="flex items-center justify-center gap-2 rounded-md border border-[#e2ebe2] px-3 py-2 text-xs font-medium text-gray-700 transition hover:bg-green-50"
           >
