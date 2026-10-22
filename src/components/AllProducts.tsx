@@ -18,7 +18,7 @@ const AllProducts = async () => {
     const products = await fetchProducts();
 
    return (
-  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 mt-3">
+  <div className="px-2 sm:px-0 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 mt-3">
     {products.map((product: ProductType) => (
         <div key={product.id} className="flex items-center gap-2">
           <ProductCard product={product} />

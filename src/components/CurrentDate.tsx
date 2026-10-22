@@ -7,6 +7,6 @@ const CurrentDate = async () => {
     dateStyle: "full",
     timeZone: "Asia/Dhaka",
   });
-  return <span className="text-[15px] leading-5 text-base-content/60">{date}</span>;
+  return <span className="text-[10px] sm:text-[15px] leading-5 text-base-content/60">{date}</span>;
 }
 export default CurrentDate;

@@ -14,14 +14,14 @@ const Navbar = async () => {
  
   return (
     <nav className="w-full bg-base-100">
-      <div className="container mx-auto flex h-14 items-center justify-between pt-4">
+      <div className="container mx-auto px-2 sm:px-0 flex h-14 items-center justify-between pt-4">
         <Link href="/" className="flex items-center gap-2.5">
           <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-700 text-white">
             <Image src="/logo-icon.png" alt="Logo" width={30} height={30} />
           </div>
 
           <div className="flex flex-col gap-2">
-            <span className="text-2xl font-bold leading-5 text-base-content">
+            <span className="text-xl sm:text-2xl font-bold leading-5 text-base-content">
               বাজার দর
             </span>
 

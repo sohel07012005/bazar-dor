@@ -18,7 +18,7 @@ const IncreasedProducts = async () => {
     const products = await fetchProducts();
 
    return (
- <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+ <div className="px-2 sm:px-0 mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
   {products
     .filter((product: ProductType) => product.change.dir === "up")
     .sort((a, b) => b.change.pct - a.change.pct)

@@ -31,7 +31,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="flex flex-row items-center justify-start gap-3 py-2">
+    <div className="grid grid-cols-4 sm:flex items-center justify-start gap-3 py-2">
       {categories.map((category) => {
         const isActive = pathname === `/category/${category.slug}`;
 

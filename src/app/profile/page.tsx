@@ -38,8 +38,8 @@ const page = () => {
           <div className="hover:text-green-700 flex items-center gap-3">
             <FaCircleUser size={50} />
             <div>
-              <p className="text-2xl font-semibold">{session?.user.name}</p>
-              <p className="text-[15px] text-gray-500">
+              <p className="text-xl sm:text-2xl font-semibold">{session?.user.name}</p>
+              <p className="text-xs sm:text-[15px] text-gray-500">
                 {session?.user.email}
               </p>
             </div>
@@ -48,7 +48,7 @@ const page = () => {
          <div>
              <button
             onClick={handleSignOut}
-            className=" flex items-center justify-center btn btn-sm gap-1 rounded-lg border-2 border-red-400 bg-white px-4 py-2 text-[13px] font-semibold text-red-600 shadow-none hover:bg-red-50"
+            className=" flex items-center justify-center btn btn-sm gap-1 rounded-lg border-2 border-red-400 bg-white px-2 sm:px-4 py-2 text-[10px] sm:text-[13px] font-semibold text-red-600 shadow-none hover:bg-red-50"
           >
             <FiLogOut size={14} />
             সাইন আউট
